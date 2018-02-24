@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--适配方案2
+			使用rem
+		-->
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			//获取设备像素比 
+			var scale = 1 / window.devicePixelRatio
+			$("meta").attr('content',"width=device-width,initial-scale="+scale+",minimum-scale="+scale+",maximum-scale="+scale+",user-scalable=no")
+			//动态更改 根节点元素字体大小  来适配不同的手机端
+			/*
+			 如果是PC端使用rem 可以这样写
+			即在每次窗口做出调整的时候 执行更改html根节点字体大小的操作
+			window.onresize = function(){
+				document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+			}
+			*/
+			// 7.5 是 设计稿的宽度，也就是设计稿的比例是7.5        等7.5比例缩放
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+		});
+	</script>
+</html>
